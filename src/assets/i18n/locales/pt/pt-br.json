@@ -7,6 +7,11 @@
 
         "TitleText": "Github - Consumidor de API",
         "IntroText": "Seja bem-vindo ao sistema de consulta de usuários e repositórios do Github!",
-        "Search": "Buscar"
+        "Search": "Buscar",
+        "User": "Usuário",
+        "Users": "Usuários",
+        "UserLoginPlaceholder": "Busque pelo login do usuário...",
+        "Repository": "Repositório",
+        "Repositories": "Repositórios"
     }
 }

@@ -40,20 +40,28 @@ html, body, #root {
   flex-wrap: wrap;
 }
 
-.formInput, .formSelect {
+.centerDisplay {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+.formInput {
   margin: 5px;
 }
 
-.formInput label, .formSelect label {
+.formInput label {
   color: #F15233;
   margin-bottom: 5px;
 }
 
-.formInput input, .formSelect select {
+.formInput input {
   border: 1px solid #d3d3d3;
   border-radius: 10px;
   outline: none;
   padding: 5px 10px;
+  width: 500px;
 }
 
 .formButton {
@@ -78,9 +86,9 @@ html, body, #root {
   margin: 8px 10px;
 }
 
-@media only screen and (max-width: 500px) {
-  .formInput input, .formSelect select {
-    max-width: 150px;
+@media only screen and (max-width: 530px) {
+  .formInput input {
+    max-width: 200px;
     word-wrap: break-word;
   }
 }
