@@ -18,16 +18,22 @@ function Home() {
 
     useEffect(() => {
         try {
-            Api.get(`/api/users?since=${since}&per_page=${perPage}`).then(res => {
-                console.log(res);
-                if (res?.data?.response?.data) {
-                    setUsers(res.data.response.data);
-                    setUsersFilter(res.data.response.data);
-                } else {
+            Api.get(`/api/users?since=${since}&per_page=${perPage}`).then(
+                res => {
+                    console.log(res);
+                    if (res?.data?.response?.data) {
+                        setUsers(res.data.response.data);
+                        setUsersFilter(res.data.response.data);
+                    } else {
+                        setUsers([]);
+                        setUsersFilter([]);
+                    }
+                }, error => {
+                    console.log(error);
                     setUsers([]);
                     setUsersFilter([]);
                 }
-            });
+            );
         } catch (error) {
             console.log(error);
             setUsers([]);
@@ -40,16 +46,21 @@ function Home() {
         e.preventDefault();
         if (loginFilter) {
             try {
-                Api.get(`/api/users/${loginFilter}/details`).then(res => {
-                    console.log(res);
-                    if (res?.data?.response?.data) {
-                        const user = [];
-                        user.push(res.data.response.data);
-                        setUsersFilter(user);
-                    } else {
+                Api.get(`/api/users/${loginFilter}/details`).then(
+                    res => {
+                        console.log(res);
+                        if (res?.data?.response?.data) {
+                            const user = [];
+                            user.push(res.data.response.data);
+                            setUsersFilter(user);
+                        } else {
+                            setUsersFilter([]);
+                        }
+                    }, error => {
+                        console.log(error);
                         setUsersFilter([]);
                     }
-                });
+                );
             } catch (error) {
                 console.log(error);
                 setUsersFilter([]);
