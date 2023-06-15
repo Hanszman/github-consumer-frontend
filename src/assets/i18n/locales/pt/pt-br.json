@@ -9,6 +9,8 @@
         "IntroText": "Seja bem-vindo ao sistema de consulta de usuários e repositórios do Github!",
         "Search": "Buscar",
         "Details": "Detalhes",
+        "Previous": "Anterior",
+        "Next": "Próximo",
         "User": "Usuário",
         "Users": "Usuários",
         "UserLoginPlaceholder": "Busque pelo login do usuário...",

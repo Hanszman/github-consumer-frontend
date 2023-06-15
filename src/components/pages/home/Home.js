@@ -6,7 +6,7 @@ import Input from '../../layout/form/input/Input';
 import Button from '../../layout/form/button/Button';
 import Card from '../../layout/card/Card';
 import Api from '../../../services/Api';
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 // Component
 function Home() {
@@ -105,6 +105,21 @@ function Home() {
                                 </div>
                             ))
                         }
+                    </div>
+                </div>
+            </div>
+            <div className='container '>
+                <div className='row'>
+                    <div className='centerDisplay'>
+                        <Button type='button'>
+                            <FaArrowLeft/>&nbsp;
+                            {t('Previous')}
+                        </Button>
+                        &nbsp;
+                        <Button type='button'>
+                            {t('Next')}&nbsp;
+                            <FaArrowRight/>
+                        </Button>
                     </div>
                 </div>
             </div>
