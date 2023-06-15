@@ -50,6 +50,7 @@ html, body, #root {
 
 .generalButton:hover {
   color: #F15233;
+  padding: 4px 9px;
   background-color: white;
   border: 1px solid #F15233;
 }

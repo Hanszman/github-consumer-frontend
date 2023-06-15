@@ -8,6 +8,7 @@
         "TitleText": "Github's API Consumer",
         "IntroText": "Welcome to the Github user and repository searching system!",
         "Search": "Search",
+        "Details": "Details",
         "User": "User",
         "Users": "Users",
         "UserLoginPlaceholder": "Search for the user's login...",

@@ -6,6 +6,7 @@ import Input from '../../layout/form/input/Input';
 import Button from '../../layout/form/button/Button';
 import Card from '../../layout/card/Card';
 import Api from '../../../services/Api';
+import { FaSearch, FaInfoCircle } from 'react-icons/fa';
 import profilePic from '../../../assets/img/user_profile_pic.png';
 
 // Component
@@ -88,7 +89,8 @@ function Home() {
                         />
                         <div className='btnFilter'>
                             <Button type='submit'>
-                                {t('Search')}
+                                {t('Search')}&nbsp;
+                                <FaSearch/>
                             </Button>
                         </div>
                     </form>
@@ -125,6 +127,15 @@ function Home() {
                                         <p><span className='highText boldText'>{t('Id')}</span>: {item.id}</p>
                                         <p><span className='highText boldText'>{t('Login')}</span>: {item.login}</p>
                                         <p><span className='highText boldText'>{t('Name')}</span>: {item.name ? item.name : '-'}</p>
+                                        <div className='centerDisplay cardButton'>
+                                            <Button
+                                                type='button'
+                                                handleOnClick={() => console.log(item.login)}
+                                            >
+                                                {t('Details')}&nbsp;
+                                                <FaInfoCircle/>
+                                            </Button>
+                                        </div>
                                     </div>
                                 </Card>
                             ))

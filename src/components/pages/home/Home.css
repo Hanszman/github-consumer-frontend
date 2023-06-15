@@ -28,6 +28,11 @@
     border-radius: 200px;
 }
 
+.cardButton {
+    margin: 10px;
+    padding: 10px 5px 0px;
+}
+
 @media (max-width: 1000px) {
     .profilePicImg {
         margin: 20px 10px;
