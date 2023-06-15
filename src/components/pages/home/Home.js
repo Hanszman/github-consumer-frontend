@@ -6,8 +6,7 @@ import Input from '../../layout/form/input/Input';
 import Button from '../../layout/form/button/Button';
 import Card from '../../layout/card/Card';
 import Api from '../../../services/Api';
-import { FaSearch, FaInfoCircle } from 'react-icons/fa';
-import profilePic from '../../../assets/img/user_profile_pic.png';
+import { FaSearch } from 'react-icons/fa';
 
 // Component
 function Home() {
@@ -101,43 +100,9 @@ function Home() {
                     <div className='centerDisplay cardContainer'>
                         {
                             usersFilter && usersFilter.length > 0 && usersFilter.map((item) => (
-                                <Card
-                                    id={item.id}
-                                    title={item.login}
-                                >
-                                    <div className='imgContainer'>
-                                        {
-                                            item.avatar_url &&
-                                            <img
-                                                className='profilePicImg'
-                                                src={item.avatar_url}
-                                                alt={`${item.login}-Profile`}
-                                            />
-                                        }
-                                        {
-                                            !item.avatar_url &&
-                                            <img
-                                                className='profilePicImg'
-                                                src={profilePic}
-                                                alt={`${item.login}-Profile`}
-                                            />
-                                        }
-                                    </div>
-                                    <div className='cardInfo'>
-                                        <p><span className='highText boldText'>{t('Id')}</span>: {item.id}</p>
-                                        <p><span className='highText boldText'>{t('Login')}</span>: {item.login}</p>
-                                        <p><span className='highText boldText'>{t('Name')}</span>: {item.name ? item.name : '-'}</p>
-                                        <div className='centerDisplay cardButton'>
-                                            <Button
-                                                type='button'
-                                                handleOnClick={() => console.log(item.login)}
-                                            >
-                                                {t('Details')}&nbsp;
-                                                <FaInfoCircle/>
-                                            </Button>
-                                        </div>
-                                    </div>
-                                </Card>
+                                <div key={item.id}>
+                                    <Card item={item}/>
+                                </div>
                             ))
                         }
                     </div>
