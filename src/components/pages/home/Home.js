@@ -4,7 +4,9 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Input from '../../layout/form/input/Input';
 import Button from '../../layout/form/button/Button';
+import Card from '../../layout/card/Card';
 import Api from '../../../services/Api';
+import profilePic from '../../../assets/img/user_profile_pic.png';
 
 // Component
 function Home() {
@@ -92,20 +94,42 @@ function Home() {
                     </form>
                 </div>
             </div>
-            
-            <div className='container'>
+            <div className='container '>
                 <div className='row'>
-                    {
-                        usersFilter && usersFilter.length > 0 && usersFilter.map((item) => (
-                            <div
-                                id={item.id}
-                                key={item.id}
-                                title={item.login}
-                            >
-                                {item.id} - {item.login}
-                            </div>
-                        ))
-                    }
+                    <div className='centerDisplay cardContainer'>
+                        {
+                            usersFilter && usersFilter.length > 0 && usersFilter.map((item) => (
+                                <Card
+                                    id={item.id}
+                                    title={item.login}
+                                >
+                                    <div className='imgContainer'>
+                                        {
+                                            item.avatar_url &&
+                                            <img
+                                                className='profilePicImg'
+                                                src={item.avatar_url}
+                                                alt={`${item.login}-Profile`}
+                                            />
+                                        }
+                                        {
+                                            !item.avatar_url &&
+                                            <img
+                                                className='profilePicImg'
+                                                src={profilePic}
+                                                alt={`${item.login}-Profile`}
+                                            />
+                                        }
+                                    </div>
+                                    <div className='cardInfo'>
+                                        <p><span className='highText boldText'>{t('Id')}</span>: {item.id}</p>
+                                        <p><span className='highText boldText'>{t('Login')}</span>: {item.login}</p>
+                                        <p><span className='highText boldText'>{t('Name')}</span>: {item.name ? item.name : '-'}</p>
+                                    </div>
+                                </Card>
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
         </div>

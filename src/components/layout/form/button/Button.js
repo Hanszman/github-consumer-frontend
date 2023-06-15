@@ -6,7 +6,7 @@ function Button(props) {
     return (
         <button
             type={props.type}
-            className='formButton'
+            className='generalButton'
             onClick={props.handleOnClick}
         >
             {props.children}

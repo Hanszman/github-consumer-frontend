@@ -14,7 +14,7 @@ function Translation() {
     return (
         <div className='dropdown dropdownTranslation'>
             <button
-                className='dropdown-toggle formButton btnTranslation'
+                className='dropdown-toggle generalButton btnTranslation'
                 type='button'
                 id='dropdownMenuButton1'
                 data-bs-toggle='dropdown'

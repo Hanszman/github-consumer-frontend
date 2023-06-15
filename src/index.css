@@ -32,14 +32,6 @@ html, body, #root {
   text-align: center;
 }
 
-.displayFlex {
-  display: flex;
-}
-
-.flexWrap {
-  flex-wrap: wrap;
-}
-
 .centerDisplay {
   display: flex;
   flex-wrap: wrap;
@@ -47,24 +39,7 @@ html, body, #root {
   justify-content: center;
 }
 
-.formInput {
-  margin: 5px;
-}
-
-.formInput label {
-  color: #F15233;
-  margin-bottom: 5px;
-}
-
-.formInput input {
-  border: 1px solid #d3d3d3;
-  border-radius: 10px;
-  outline: none;
-  padding: 5px 10px;
-  width: 500px;
-}
-
-.formButton {
+.generalButton {
   color: white;
   background-color: #F15233;
   border: none;
@@ -73,7 +48,7 @@ html, body, #root {
   outline: none;
 }
 
-.formButton:hover {
+.generalButton:hover {
   color: #F15233;
   background-color: white;
   border: 1px solid #F15233;
@@ -84,11 +59,4 @@ html, body, #root {
   align-items: flex-end;
   justify-content: flex-end;
   margin: 8px 10px;
-}
-
-@media only screen and (max-width: 530px) {
-  .formInput input {
-    max-width: 200px;
-    word-wrap: break-word;
-  }
 }

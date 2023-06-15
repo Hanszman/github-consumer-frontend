@@ -12,6 +12,9 @@
         "Users": "Usuários",
         "UserLoginPlaceholder": "Busque pelo login do usuário...",
         "Repository": "Repositório",
-        "Repositories": "Repositórios"
+        "Repositories": "Repositórios",
+        "Id": "ID",
+        "Login": "Login",
+        "Name": "Nome"
     }
 }

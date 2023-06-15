@@ -1,0 +1,23 @@
+.formInput {
+    margin: 5px;
+}
+
+.formInput label {
+    color: #F15233;
+    margin-bottom: 5px;
+}
+
+.formInput input {
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    outline: none;
+    padding: 5px 10px;
+    width: 500px;
+}
+
+@media only screen and (max-width: 530px) {
+    .formInput input {
+        max-width: 200px;
+        word-wrap: break-word;
+    }
+}

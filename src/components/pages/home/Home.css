@@ -1,0 +1,36 @@
+.cardContainer {
+    margin: 20px 10px;
+}
+
+.cardInfo {
+    margin: 10px 0px;
+}
+
+.cardInfo p {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 10px;
+    padding: 0px;
+}
+
+.imgContainer {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.profilePicImg {
+    width: 100px;
+    height: auto;
+    margin: 10px 50px;
+    border: 1px solid #d3d3d3;
+    box-shadow: 1px 1px 20px 1px #F15233;
+    border-radius: 200px;
+}
+
+@media (max-width: 1000px) {
+    .profilePicImg {
+        margin: 20px 10px;
+        width: 200px;
+    }
+}
