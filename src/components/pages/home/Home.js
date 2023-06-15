@@ -17,22 +17,43 @@ function Home() {
     const perPage = 10;
 
     useEffect(() => {
-        Api.get(`/api/users?since=${since}&per_page=${perPage}`).then(res => {
-            setUsers(res.data.response.data);
-            setUsersFilter(res.data.response.data);
-        });
+        try {
+            Api.get(`/api/users?since=${since}&per_page=${perPage}`).then(res => {
+                console.log(res);
+                if (res?.data?.response?.data) {
+                    setUsers(res.data.response.data);
+                    setUsersFilter(res.data.response.data);
+                } else {
+                    setUsers([]);
+                    setUsersFilter([]);
+                }
+            });
+        } catch (error) {
+            console.log(error);
+            setUsers([]);
+            setUsersFilter([]);
+        }
     }, []);
 
     // Functions
     function filterUser(e) {
         e.preventDefault();
         if (loginFilter) {
-            Api.get(`/api/users/${loginFilter}/details`).then(res => {
-                console.log(res);
-                const user = [];
-                user.push(res.data.response.data);
-                setUsersFilter(user);
-            });
+            try {
+                Api.get(`/api/users/${loginFilter}/details`).then(res => {
+                    console.log(res);
+                    if (res?.data?.response?.data) {
+                        const user = [];
+                        user.push(res.data.response.data);
+                        setUsersFilter(user);
+                    } else {
+                        setUsersFilter([]);
+                    }
+                });
+            } catch (error) {
+                console.log(error);
+                setUsersFilter([]);
+            }
         } else {
             setUsersFilter(users);
         }
