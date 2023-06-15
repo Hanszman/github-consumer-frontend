@@ -1,4 +1,7 @@
+// Imports
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+// Component
 function App() {
   return (
     <div className="App">
@@ -7,4 +10,5 @@ function App() {
   );
 }
 
+// Exportation
 export default App;
