@@ -1,0 +1,16 @@
+{
+    "languages": [
+        {
+            "code": "en",
+            "language_name": "English",
+            "country_name": "USA",
+            "country_code": "us"
+        },
+        {
+            "code": "pt",
+            "language_name": "Portuguese",
+            "country_name": "Brazil",
+            "country_code": "br"
+        }
+    ]
+}

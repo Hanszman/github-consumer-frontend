@@ -1,0 +1,20 @@
+.header {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: transparent;
+}
+
+.imgLogo {
+    width: 50px;
+    height: auto;
+    margin: 0 10px;
+}

@@ -15,3 +15,72 @@ html, body, #root {
   padding: 0;
   margin: 0;
 }
+
+.highText {
+  color: #F15233;
+}
+
+.boldText {
+  font-weight: bold;
+}
+
+.italicText {
+  font-style: italic;
+}
+
+.centerText {
+  text-align: center;
+}
+
+.displayFlex {
+  display: flex;
+}
+
+.flexWrap {
+  flex-wrap: wrap;
+}
+
+.formInput, .formSelect {
+  margin: 5px;
+}
+
+.formInput label, .formSelect label {
+  color: #F15233;
+  margin-bottom: 5px;
+}
+
+.formInput input, .formSelect select {
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+  outline: none;
+  padding: 5px 10px;
+}
+
+.formButton {
+  color: white;
+  background-color: #F15233;
+  border: none;
+  border-radius: 7px;
+  padding: 5px 10px;
+  outline: none;
+}
+
+.formButton:hover {
+  color: #F15233;
+  background-color: white;
+  border: 1px solid #F15233;
+}
+
+.btnFilter {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: 8px 10px;
+}
+
+@media only screen and (max-width: 500px) {
+  .formInput input, .formSelect select {
+    max-width: 150px;
+    word-wrap: break-word;
+  }
+}
