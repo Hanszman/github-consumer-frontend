@@ -22,6 +22,7 @@
         "Name": "Name",
         "ProfileURL": "Profile URL",
         "ReposURL": "Repository URL",
-        "CreationDate": "Login Creation Date"
+        "CreationDate": "Login Creation Date",
+        "NoData": "There is no data to show."
     }
 }
