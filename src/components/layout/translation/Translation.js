@@ -19,6 +19,7 @@ function Translation() {
                 id='dropdownMenuButton1'
                 data-bs-toggle='dropdown'
                 aria-expanded='false'
+                title={t('Translate')}
             >
                 <FaGlobe/>
             </button>

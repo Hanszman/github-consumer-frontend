@@ -16,7 +16,7 @@ function App() {
       <Container>
         <Routes>
           <Route exact path='/' element={<Home/>}></Route>
-          <Route path='/user/:id' element={<User/>}></Route>
+          <Route path='/user/:username' element={<User/>}></Route>
         </Routes>
       </Container>
     </Router>

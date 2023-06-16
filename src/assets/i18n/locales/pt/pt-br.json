@@ -4,9 +4,10 @@
         "English": "Inglês",
         "Brazil": "Brasil",
         "USA": "EUA",
-
         "TitleText": "Github - Consumidor de API",
         "IntroText": "Seja bem-vindo ao sistema de consulta de usuários e repositórios do Github!",
+        "Home": "Início",
+        "Translate": "Traduzir",
         "Search": "Buscar",
         "Details": "Detalhes",
         "Previous": "Anterior",

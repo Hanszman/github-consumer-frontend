@@ -1,7 +1,7 @@
 // Imports
 import './Card.css';
 import { useTranslation } from 'react-i18next';
-import Button from '../../layout/form/button/Button';
+import { Link } from 'react-router-dom';
 import { FaInfoCircle } from 'react-icons/fa';
 import profilePic from '../../../assets/img/user_profile_pic.png';
 
@@ -14,7 +14,7 @@ function Card(props) {
         <div
             id={props.item.id}
             key={props.item.id}
-            title={props.item.title}
+            title={props.item.login}
             className='generalCard'
         >
             <div className='imgContainer'>
@@ -40,13 +40,13 @@ function Card(props) {
                 <p><span className='highText boldText'>{t('Login')}</span>: {props.item.login}</p>
                 <p><span className='highText boldText'>{t('Name')}</span>: {props.item.name ? props.item.name : '-'}</p>
                 <div className='centerDisplay cardButton'>
-                    <Button
-                        type='button'
-                        handleOnClick={() => console.log(props.item.login)}
+                    <Link
+                        className='generalButton'
+                        to={`/user/${props.item.login}`}
                     >
                         {t('Details')}&nbsp;
                         <FaInfoCircle/>
-                    </Button>
+                    </Link>
                 </div>
             </div>
         </div>
