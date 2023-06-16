@@ -76,7 +76,7 @@ html, body, #root {
   border-radius: 200px;
 }
 
-@media (max-width: 1000px) {
+@media only screen and (max-width: 1000px) {
   .profilePicImg {
     margin: 20px 10px;
     width: 200px;

@@ -12,3 +12,11 @@ th {
     color: white;
     background-color: #F15233;
 }
+
+@media only screen and (max-width: 1000px) {
+    table {
+        display: block;
+        overflow-x: scroll;
+        max-width: 80vw;
+    }
+}

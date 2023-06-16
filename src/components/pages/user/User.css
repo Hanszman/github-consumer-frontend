@@ -1,4 +1,8 @@
 .userImg {
-    width: 300px;
+    width: 250px;
     margin: 30px 50px;
+}
+
+.userLink {
+    word-wrap: break-word;
 }

@@ -36,8 +36,8 @@ function Card(props) {
                 }
             </div>
             <div className='cardInfo'>
-                <p><span className='highText boldText'>{t('Id')}</span>: {props.item.id}</p>
-                <p><span className='highText boldText'>{t('Login')}</span>: {props.item.login}</p>
+                <p><span className='highText boldText'>{t('Id')}:&nbsp;</span>{props.item.id}</p>
+                <p><span className='highText boldText'>{t('Login')}:&nbsp;</span>{props.item.login}</p>
                 <div className='centerDisplay cardButton'>
                     <Link
                         className='generalButton'

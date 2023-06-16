@@ -56,13 +56,15 @@ function User() {
                 }
             </div>
             <div className='row centerText'>
-                <p><span className='text boldText'>{t('Id')}</span>: {user.id}</p>
-                <p><span className='text boldText'>{t('Login')}</span>: {user.login}</p>
-                <p><span className='text boldText'>{t('Name')}</span>: {user.name ? user.name : '-'}</p>
-                <p><span className='text boldText'>{t('ProfileURL')} <FaGithub/></span>:&nbsp;
-                    <a href={user.html_url} target='_blank' rel="noreferrer">{user.html_url}</a>
+                <p><span className='text boldText'>{t('Id')}:</span> {user.id}</p>
+                <p><span className='text boldText'>{t('Login')}:</span> {user.login}</p>
+                <p><span className='text boldText'>{t('Name')}:</span> {user.name ? user.name : '-'}</p>
+                <p><span className='text boldText'>{t('ProfileURL')}:&nbsp;<FaGithub/>&nbsp;</span>
+                    <a href={user.html_url} target='_blank' rel="noreferrer" className='userLink'>
+                        {user.html_url}
+                    </a>
                 </p>
-                <p><span className='text boldText'>{t('CreationDate')}</span>: {formatDateString(user.created_at)}</p>
+                <p><span className='text boldText'>{t('CreationDate')}:</span> {formatDateString(user.created_at)}</p>
                 <Repositories username={username}/>
             </div>
         </div>
