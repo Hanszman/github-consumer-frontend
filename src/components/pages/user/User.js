@@ -58,7 +58,7 @@ function User() {
                 <p><span className='text boldText'>{t('Id')}</span>: {user.id}</p>
                 <p><span className='text boldText'>{t('Login')}</span>: {user.login}</p>
                 <p><span className='text boldText'>{t('Name')}</span>: {user.name ? user.name : '-'}</p>
-                <p><span className='text boldText'>{t('ProfileURL')} <FaGithub/></span>:
+                <p><span className='text boldText'>{t('ProfileURL')} <FaGithub/></span>:&nbsp;
                     <a href={user.html_url} target='_blank' rel="noreferrer">{user.html_url}</a>
                 </p>
                 <p><span className='text boldText'>{t('CreationDate')}</span>: {user.created_at}</p>

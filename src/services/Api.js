@@ -4,5 +4,5 @@ import env from "react-dotenv";
 
 // Exportation
 export default axios.create({
-    baseURL: env.API_URL
+    baseURL: env.REACT_APP_API_URL
 });

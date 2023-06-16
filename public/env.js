@@ -1,4 +1,4 @@
 window.env = {
-  "API_URL": "http://localhost:3333/",
-  "WEB_URL": "http://localhost:3000/"
+  "REACT_APP_API_URL": "http://localhost:3333/",
+  "REACT_APP_WEB_URL": "http://localhost:3000/"
 };
