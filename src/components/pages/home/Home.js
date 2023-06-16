@@ -20,6 +20,7 @@ function Home() {
     const [loginFilter, setLoginFilter] = useState('');
     const [previousPage, setPreviousPage] = useState('');
     const [nextPage, setNextPage] = useState('');
+    const [nextPageCount, setNextPageCount] = useState(0);
     const [currentPageHistory, setCurrentPageHistory] = useState([]);
     const [usersFirstNextPage, setUsersFirstNextPage] = useState('');
 
@@ -32,6 +33,7 @@ function Home() {
                         setUsersFilter(res.data.response.data);
                         setPreviousPage('');
                         setNextPage(res.data.response.partialNextPageUrl);
+                        setNextPageCount(0);
                         setCurrentPageHistory([initialUrl]);
                         setUsersFirstNextPage(res.data.response.partialNextPageUrl);
                     } else {
@@ -63,6 +65,7 @@ function Home() {
                             setUsersFilter(user);
                             setPreviousPage('');
                             setNextPage('');
+                            setNextPageCount(0);
                             setCurrentPageHistory([filterUrl]);
                         } else {
                             console.log('Error: Response Empty!');
@@ -81,6 +84,7 @@ function Home() {
             setUsersFilter(users);
             setPreviousPage('');
             setNextPage(usersFirstNextPage);
+            setNextPageCount(0);
             setCurrentPageHistory([initialUrl]);
         }
     }
@@ -92,10 +96,12 @@ function Home() {
                 res => {
                     if (res?.data?.response?.data) {
                         setUsersFilter(res.data.response.data);
-                        setCurrentPageHistory(oldArray => oldArray.filter((_, index) => index !== currentPageHistory.length-1));
-                        setPreviousPage(currentPageHistory[currentPageHistory.length-1]);
+                        const previous = nextPageCount > 1 ? currentPageHistory[nextPageCount-2] : '';
+                        setPreviousPage(previous);
                         setNextPage(res.data.response.partialNextPageUrl);
-                        
+                        const count = nextPageCount > 0 ? nextPageCount - 1 : 0;
+                        setNextPageCount(count);
+                        setCurrentPageHistory(oldArray => oldArray.filter((_, index) => index !== currentPageHistory.length-1));
                     } else {
                         console.log('Error: Response Empty!');
                         reset();
@@ -120,7 +126,8 @@ function Home() {
                         setUsersFilter(res.data.response.data);
                         setPreviousPage(currentPageHistory[currentPageHistory.length-1]);
                         setNextPage(res.data.response.partialNextPageUrl);
-                        setCurrentPageHistory(oldArray => [...oldArray, url]);
+                        setNextPageCount(nextPageCount+1);
+                        setCurrentPageHistory([...currentPageHistory, url]);
                     } else {
                         console.log('Error: Response Empty!');
                         reset();
@@ -140,6 +147,7 @@ function Home() {
         setUsersFilter([]);
         setPreviousPage('');
         setNextPage('');
+        setNextPageCount(0);
         setCurrentPageHistory([]);
         if (init) {
             setUsers([]);
