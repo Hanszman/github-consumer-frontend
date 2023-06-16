@@ -49,7 +49,7 @@ function Table(props) {
                 </tbody>
             </table>
             {
-                !props.rows || props.rows.length <= 0 &&
+                (!props.rows || props.rows.length <= 0) &&
                 <p>{t('NoData')}</p>
             }
         </div>

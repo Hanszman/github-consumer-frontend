@@ -1,6 +1,6 @@
 // Imports
 import './Repositories.css';
-import Api from '../../../services/Api';
+import { apiGet } from '../../../services/Api';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Table from '../../layout/table/Table';
@@ -19,9 +19,8 @@ function Repositories(props) {
 
     useEffect(() => {
         try {
-            Api.get(`/api/users/${props.username}/repos`).then(
+            apiGet(`/api/users/${props.username}/repos`).then(
                 res => {
-                    console.log(res);
                     if (res?.data?.response?.data) {
                         setRepos(res.data.response.data);
                     } else {

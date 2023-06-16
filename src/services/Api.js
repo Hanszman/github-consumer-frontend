@@ -1,8 +1,12 @@
 // Imports
 import axios from 'axios';
-import env from "react-dotenv";
+
+// Functions
+const apiGet = (url) => {
+    return axios.get(process.env.REACT_APP_API_URL + url);
+}
 
 // Exportation
-export default axios.create({
-    baseURL: env.REACT_APP_API_URL
-});
+export {
+    apiGet
+};

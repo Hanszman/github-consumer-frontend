@@ -1,6 +1,6 @@
 // Imports
 import './User.css';
-import Api from '../../../services/Api';
+import { apiGet } from '../../../services/Api';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -18,7 +18,7 @@ function User() {
 
     useEffect(() => {
         try {
-            Api.get(`/api/users/${username}/details`).then(
+            apiGet(`/api/users/${username}/details`).then(
                 res => {
                     if (res?.data?.response?.data) {
                         setUser(res.data.response.data);

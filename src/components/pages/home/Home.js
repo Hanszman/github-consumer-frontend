@@ -1,6 +1,6 @@
 // Imports
 import './Home.css';
-import Api from '../../../services/Api';
+import { apiGet } from '../../../services/Api';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Input from '../../layout/form/input/Input';
@@ -25,7 +25,7 @@ function Home() {
 
     useEffect(() => {
         try {
-            Api.get(initialUrl).then(
+            apiGet(initialUrl).then(
                 res => {
                     if (res?.data?.response?.data) {
                         setUsers(res.data.response.data);
@@ -55,7 +55,7 @@ function Home() {
         if (loginFilter) {
             const filterUrl = `/api/users/${loginFilter}/details`;
             try {
-                Api.get(filterUrl).then(
+                apiGet(filterUrl).then(
                     res => {
                         if (res?.data?.response?.data) {
                             const user = [];
@@ -88,7 +88,7 @@ function Home() {
     function goToPreviousPage() {
         const url = previousPage;
         try {
-            Api.get(url).then(
+            apiGet(url).then(
                 res => {
                     if (res?.data?.response?.data) {
                         setUsersFilter(res.data.response.data);
@@ -114,7 +114,7 @@ function Home() {
     function goToNextPage() {
         const url = nextPage;
         try {
-            Api.get(url).then(
+            apiGet(url).then(
                 res => {
                     if (res?.data?.response?.data) {
                         setUsersFilter(res.data.response.data);
