@@ -148,66 +148,60 @@ function Home() {
     }
 
     return (
-        <div>
+        <div className='container'>
             <h1 className='highText centerText boldText'>{t('TitleText')}</h1>
             <p className='text centerText italicText'>{t('IntroText')}</p><br/>
-            <div className='container'>
-                <div className='row'>
-                    <form className='centerDisplay col-12' onSubmit={(e) => filterUser(e)}>
-                        <Input
-                            type='text'
-                            text={t('User')}
-                            name='userLogin'
-                            placeholder={t('UserLogin')}
-                            handleOnChange={e => setLoginFilter(e.target.value)}
-                        />
-                        <div className='btnFilter'>
-                            <Button type='submit'>
-                                {t('Search')}&nbsp;
-                                <FaSearch/>
-                            </Button>
-                        </div>
-                    </form>
+            <div className='row'>
+                <form className='centerDisplay col-12' onSubmit={(e) => filterUser(e)}>
+                    <Input
+                        type='text'
+                        text={t('User')}
+                        name='userLogin'
+                        placeholder={t('UserLogin')}
+                        handleOnChange={e => setLoginFilter(e.target.value)}
+                    />
+                    <div className='btnFilter'>
+                        <Button type='submit'>
+                            {t('Search')}&nbsp;
+                            <FaSearch/>
+                        </Button>
+                    </div>
+                </form>
+            </div>
+            <div className='row'>
+                <div className='centerDisplay cardContainer'>
+                    {
+                        usersFilter && usersFilter.length > 0 && usersFilter.map((item) => (
+                            <div key={item.id}>
+                                <Card item={item}/>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
-            <div className='container '>
-                <div className='row'>
-                    <div className='centerDisplay cardContainer'>
-                        {
-                            usersFilter && usersFilter.length > 0 && usersFilter.map((item) => (
-                                <div key={item.id}>
-                                    <Card item={item}/>
-                                </div>
-                            ))
-                        }
-                    </div>
-                </div>
-            </div>
-            <div className='container '>
-                <div className='row'>
-                    <div className='centerDisplay'>
-                        {
-                            previousPage &&
-                            <Button
-                                type='button'
-                                handleOnClick={() => goToPreviousPage()}
-                            >
-                                <FaArrowLeft/>&nbsp;
-                                {t('Previous')}
-                            </Button>
-                        }
-                        &nbsp;
-                        {
-                            nextPage &&
-                            <Button
-                                type='button'
-                                handleOnClick={() => goToNextPage()}
-                            >
-                                {t('Next')}&nbsp;
-                                <FaArrowRight/>
-                            </Button>
-                        }
-                    </div>
+            <div className='row'>
+                <div className='centerDisplay'>
+                    {
+                        previousPage &&
+                        <Button
+                            type='button'
+                            handleOnClick={() => goToPreviousPage()}
+                        >
+                            <FaArrowLeft/>&nbsp;
+                            {t('Previous')}
+                        </Button>
+                    }
+                    &nbsp;
+                    {
+                        nextPage &&
+                        <Button
+                            type='button'
+                            handleOnClick={() => goToNextPage()}
+                        >
+                            {t('Next')}&nbsp;
+                            <FaArrowRight/>
+                        </Button>
+                    }
                 </div>
             </div>
         </div>
