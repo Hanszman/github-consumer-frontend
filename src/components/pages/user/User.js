@@ -4,6 +4,7 @@ import Api from '../../../services/Api';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { formatDateString } from '../../../utils/Utils';
 import Repositories from '../repositories/Repositories';
 import { FaGithub } from 'react-icons/fa';
 import profilePic from '../../../assets/img/user_profile_pic.png';
@@ -61,7 +62,7 @@ function User() {
                 <p><span className='text boldText'>{t('ProfileURL')} <FaGithub/></span>:&nbsp;
                     <a href={user.html_url} target='_blank' rel="noreferrer">{user.html_url}</a>
                 </p>
-                <p><span className='text boldText'>{t('CreationDate')}</span>: {user.created_at}</p>
+                <p><span className='text boldText'>{t('CreationDate')}</span>: {formatDateString(user.created_at)}</p>
                 <Repositories username={username}/>
             </div>
         </div>
