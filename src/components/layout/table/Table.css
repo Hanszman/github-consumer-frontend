@@ -1,0 +1,14 @@
+table {
+    margin: 20px 10px;
+    box-shadow: 1px 1px 20px 1px #F15233;
+}
+
+table, tr, th, td {
+    padding: 15px;
+    border: 1px solid #F15233;
+}
+
+th {
+    color: white;
+    background-color: #F15233;
+}
