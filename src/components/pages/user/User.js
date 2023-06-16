@@ -1,11 +1,11 @@
 // Imports
 import './User.css';
+import Api from '../../../services/Api';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Repositories from '../repositories/Repositories';
 import { FaGithub } from 'react-icons/fa';
-import Api from '../../../services/Api';
 import profilePic from '../../../assets/img/user_profile_pic.png';
 
 // Component
@@ -62,7 +62,7 @@ function User() {
                     <a href={user.html_url} target='_blank' rel="noreferrer">{user.html_url}</a>
                 </p>
                 <p><span className='text boldText'>{t('CreationDate')}</span>: {user.created_at}</p>
-                <Repositories/>
+                <Repositories username={username}/>
             </div>
         </div>
     );

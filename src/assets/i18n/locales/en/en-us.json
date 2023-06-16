@@ -21,6 +21,7 @@
         "Login": "Login",
         "Name": "Name",
         "ProfileURL": "Profile URL",
+        "ReposURL": "Repository URL",
         "CreationDate": "Login Creation Date"
     }
 }

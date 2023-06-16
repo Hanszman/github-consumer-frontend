@@ -1,11 +1,11 @@
 // Imports
 import './Home.css';
+import Api from '../../../services/Api';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Input from '../../layout/form/input/Input';
 import Button from '../../layout/form/button/Button';
 import Card from '../../layout/card/Card';
-import Api from '../../../services/Api';
 import { FaSearch, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 // Component
