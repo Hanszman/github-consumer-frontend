@@ -5,7 +5,6 @@ import Navbar from './components/layout/navbar/Navbar';
 import Home from './components/pages/home/Home';
 import User from './components/pages/user/User';
 
-// TODO: Pagination
 // TODO: User details page
 // TODO: Repositories table
 // TODO: Refactor the code

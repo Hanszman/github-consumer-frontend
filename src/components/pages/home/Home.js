@@ -12,55 +12,50 @@ import { FaSearch, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 function Home() {
     // Declarations
     const { t } = useTranslation();
+    const since = 0;
+    const perPage = 10;
+    const initialUrl = `/api/users?since=${since}&per_page=${perPage}`;
     const [users, setUsers] = useState([]);
     const [usersFilter, setUsersFilter] = useState([]);
     const [loginFilter, setLoginFilter] = useState('');
     const [previousPage, setPreviousPage] = useState('');
     const [nextPage, setNextPage] = useState('');
+    const [currentPageHistory, setCurrentPageHistory] = useState([]);
     const [usersFirstNextPage, setUsersFirstNextPage] = useState('');
-    const since = 0;
-    const perPage = 10;
 
     useEffect(() => {
         try {
-            Api.get(`/api/users?since=${since}&per_page=${perPage}`).then(
+            Api.get(initialUrl).then(
                 res => {
                     console.log(res);
                     if (res?.data?.response?.data) {
                         setUsers(res.data.response.data);
                         setUsersFilter(res.data.response.data);
                         setPreviousPage('');
-                        setNextPage(res.data.response.nextPageUrl);
-                        setUsersFirstNextPage(res.data.response.nextPageUrl);
+                        setNextPage(res.data.response.partialNextPageUrl);
+                        setCurrentPageHistory([initialUrl]);
+                        setUsersFirstNextPage(res.data.response.partialNextPageUrl);
                     } else {
-                        setUsers([]);
-                        setUsersFilter([]);
-                        setPreviousPage('');
-                        setNextPage('');
+                        reset(true);
                     }
                 }, error => {
                     console.log(error);
-                    setUsers([]);
-                    setUsersFilter([]);
-                    setPreviousPage('');
-                    setNextPage('');
+                    reset(true);
                 }
             );
         } catch (error) {
             console.log(error);
-            setUsers([]);
-            setUsersFilter([]);
-            setPreviousPage('');
-            setNextPage('');
+            reset(true);
         }
-    }, []);
+    }, [initialUrl]);
 
     // Functions
     function filterUser(e) {
         e.preventDefault();
         if (loginFilter) {
+            const filterUrl = `/api/users/${loginFilter}/details`;
             try {
-                Api.get(`/api/users/${loginFilter}/details`).then(
+                Api.get(filterUrl).then(
                     res => {
                         console.log(res);
                         if (res?.data?.response?.data) {
@@ -69,28 +64,86 @@ function Home() {
                             setUsersFilter(user);
                             setPreviousPage('');
                             setNextPage('');
+                            setCurrentPageHistory([filterUrl]);
                         } else {
-                            setUsersFilter([]);
-                            setPreviousPage('');
-                            setNextPage('');
+                            reset();
                         }
                     }, error => {
                         console.log(error);
-                        setUsersFilter([]);
-                        setPreviousPage('');
-                        setNextPage('');
+                        reset();
                     }
                 );
             } catch (error) {
                 console.log(error);
-                setUsersFilter([]);
-                setPreviousPage('');
-                setNextPage('');
+                reset();
             }
         } else {
             setUsersFilter(users);
             setPreviousPage('');
             setNextPage(usersFirstNextPage);
+            setCurrentPageHistory([initialUrl]);
+        }
+    }
+
+    function goToPreviousPage() {
+        const url = previousPage;
+        try {
+            Api.get(url).then(
+                res => {
+                    console.log(res);
+                    if (res?.data?.response?.data) {
+                        setUsersFilter(res.data.response.data);
+                        setCurrentPageHistory(oldArray => oldArray.filter((_, index) => index !== currentPageHistory.length-1));
+                        setPreviousPage(currentPageHistory[currentPageHistory.length-1]);
+                        setNextPage(res.data.response.partialNextPageUrl);
+                        
+                    } else {
+                        reset();
+                    }
+                }, error => {
+                    console.log(error);
+                    reset();
+                }
+            );
+        } catch (error) {
+            console.log(error);
+            reset();
+        }
+    }
+
+    function goToNextPage() {
+        const url = nextPage;
+        try {
+            Api.get(url).then(
+                res => {
+                    console.log(res);
+                    if (res?.data?.response?.data) {
+                        setUsersFilter(res.data.response.data);
+                        setPreviousPage(currentPageHistory[currentPageHistory.length-1]);
+                        setNextPage(res.data.response.partialNextPageUrl);
+                        setCurrentPageHistory(oldArray => [...oldArray, url]);
+                    } else {
+                        reset();
+                    }
+                }, error => {
+                    console.log(error);
+                    reset();
+                }
+            );
+        } catch (error) {
+            console.log(error);
+            reset();
+        }
+    }
+
+    function reset(init = false) {
+        setUsersFilter([]);
+        setPreviousPage('');
+        setNextPage('');
+        setCurrentPageHistory([]);
+        if (init) {
+            setUsers([]);
+            setUsersFirstNextPage('');
         }
     }
 
@@ -137,7 +190,7 @@ function Home() {
                             previousPage &&
                             <Button
                                 type='button'
-                                handleOnClick={() => console.log(previousPage)}
+                                handleOnClick={() => goToPreviousPage()}
                             >
                                 <FaArrowLeft/>&nbsp;
                                 {t('Previous')}
@@ -148,7 +201,7 @@ function Home() {
                             nextPage &&
                             <Button
                                 type='button'
-                                handleOnClick={() => console.log(nextPage)}
+                                handleOnClick={() => goToNextPage()}
                             >
                                 {t('Next')}&nbsp;
                                 <FaArrowRight/>
