@@ -34,7 +34,7 @@ function Repositories(props) {
         } catch (error) {
             console.log(error);
         }
-    }, []);
+    }, [props.username]);
 
     return (
         <div className='centerDisplay'>
