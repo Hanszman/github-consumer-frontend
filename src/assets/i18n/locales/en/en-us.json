@@ -19,6 +19,8 @@
         "Repositories": "Repositories",
         "Id": "ID",
         "Login": "Login",
-        "Name": "Name"
+        "Name": "Name",
+        "ProfileURL": "Profile URL",
+        "CreationDate": "Login Creation Date"
     }
 }

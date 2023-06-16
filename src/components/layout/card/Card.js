@@ -21,7 +21,7 @@ function Card(props) {
                 {
                     props.item.avatar_url &&
                     <img
-                        className='profilePicImg'
+                        className='profilePicImg cardImg'
                         src={props.item.avatar_url}
                         alt={`${props.item.login}-Profile`}
                     />
@@ -29,7 +29,7 @@ function Card(props) {
                 {
                     !props.item.avatar_url &&
                     <img
-                        className='profilePicImg'
+                        className='profilePicImg cardImg'
                         src={profilePic}
                         alt={`${props.item.login}-Profile`}
                     />
@@ -38,7 +38,6 @@ function Card(props) {
             <div className='cardInfo'>
                 <p><span className='highText boldText'>{t('Id')}</span>: {props.item.id}</p>
                 <p><span className='highText boldText'>{t('Login')}</span>: {props.item.login}</p>
-                <p><span className='highText boldText'>{t('Name')}</span>: {props.item.name ? props.item.name : '-'}</p>
                 <div className='centerDisplay cardButton'>
                     <Link
                         className='generalButton'

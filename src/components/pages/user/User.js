@@ -4,7 +4,9 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Repositories from '../repositories/Repositories';
+import { FaGithub } from 'react-icons/fa';
 import Api from '../../../services/Api';
+import profilePic from '../../../assets/img/user_profile_pic.png';
 
 // Component
 function User() {
@@ -34,10 +36,32 @@ function User() {
     return (
         <div className='container'>
             <h1 className='highText centerText boldText'>{user.login}</h1>
-            <div className='row'>
+            <div className='imgContainer centerText'>
+                {
+                    user.avatar_url &&
+                    <img
+                        className='profilePicImg userImg'
+                        src={user.avatar_url}
+                        alt={`${user.login}-Profile`}
+                    />
+                }
+                {
+                    !user.avatar_url &&
+                    <img
+                        className='profilePicImg userImg'
+                        src={profilePic}
+                        alt={`${user.login}-Profile`}
+                    />
+                }
+            </div>
+            <div className='row centerText'>
                 <p><span className='text boldText'>{t('Id')}</span>: {user.id}</p>
                 <p><span className='text boldText'>{t('Login')}</span>: {user.login}</p>
                 <p><span className='text boldText'>{t('Name')}</span>: {user.name ? user.name : '-'}</p>
+                <p><span className='text boldText'>{t('ProfileURL')} <FaGithub/></span>:
+                    <a href={user.html_url} target='_blank' rel="noreferrer">{user.html_url}</a>
+                </p>
+                <p><span className='text boldText'>{t('CreationDate')}</span>: {user.created_at}</p>
                 <Repositories/>
             </div>
         </div>
