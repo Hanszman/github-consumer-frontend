@@ -35,6 +35,7 @@ function Home() {
                         setCurrentPageHistory([initialUrl]);
                         setUsersFirstNextPage(res.data.response.partialNextPageUrl);
                     } else {
+                        console.log('Error: Response Empty!');
                         reset(true);
                     }
                 }, error => {
@@ -64,6 +65,7 @@ function Home() {
                             setNextPage('');
                             setCurrentPageHistory([filterUrl]);
                         } else {
+                            console.log('Error: Response Empty!');
                             reset();
                         }
                     }, error => {
@@ -95,6 +97,7 @@ function Home() {
                         setNextPage(res.data.response.partialNextPageUrl);
                         
                     } else {
+                        console.log('Error: Response Empty!');
                         reset();
                     }
                 }, error => {
@@ -119,6 +122,7 @@ function Home() {
                         setNextPage(res.data.response.partialNextPageUrl);
                         setCurrentPageHistory(oldArray => [...oldArray, url]);
                     } else {
+                        console.log('Error: Response Empty!');
                         reset();
                     }
                 }, error => {
