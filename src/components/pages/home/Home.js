@@ -15,6 +15,9 @@ function Home() {
     const [users, setUsers] = useState([]);
     const [usersFilter, setUsersFilter] = useState([]);
     const [loginFilter, setLoginFilter] = useState('');
+    const [previousPage, setPreviousPage] = useState('');
+    const [nextPage, setNextPage] = useState('');
+    const [usersFirstNextPage, setUsersFirstNextPage] = useState('');
     const since = 0;
     const perPage = 10;
 
@@ -26,20 +29,29 @@ function Home() {
                     if (res?.data?.response?.data) {
                         setUsers(res.data.response.data);
                         setUsersFilter(res.data.response.data);
+                        setPreviousPage('');
+                        setNextPage(res.data.response.nextPageUrl);
+                        setUsersFirstNextPage(res.data.response.nextPageUrl);
                     } else {
                         setUsers([]);
                         setUsersFilter([]);
+                        setPreviousPage('');
+                        setNextPage('');
                     }
                 }, error => {
                     console.log(error);
                     setUsers([]);
                     setUsersFilter([]);
+                    setPreviousPage('');
+                    setNextPage('');
                 }
             );
         } catch (error) {
             console.log(error);
             setUsers([]);
             setUsersFilter([]);
+            setPreviousPage('');
+            setNextPage('');
         }
     }, []);
 
@@ -55,20 +67,30 @@ function Home() {
                             const user = [];
                             user.push(res.data.response.data);
                             setUsersFilter(user);
+                            setPreviousPage('');
+                            setNextPage('');
                         } else {
                             setUsersFilter([]);
+                            setPreviousPage('');
+                            setNextPage('');
                         }
                     }, error => {
                         console.log(error);
                         setUsersFilter([]);
+                        setPreviousPage('');
+                        setNextPage('');
                     }
                 );
             } catch (error) {
                 console.log(error);
                 setUsersFilter([]);
+                setPreviousPage('');
+                setNextPage('');
             }
         } else {
             setUsersFilter(users);
+            setPreviousPage('');
+            setNextPage(usersFirstNextPage);
         }
     }
 
@@ -111,15 +133,27 @@ function Home() {
             <div className='container '>
                 <div className='row'>
                     <div className='centerDisplay'>
-                        <Button type='button'>
-                            <FaArrowLeft/>&nbsp;
-                            {t('Previous')}
-                        </Button>
+                        {
+                            previousPage &&
+                            <Button
+                                type='button'
+                                handleOnClick={() => console.log(previousPage)}
+                            >
+                                <FaArrowLeft/>&nbsp;
+                                {t('Previous')}
+                            </Button>
+                        }
                         &nbsp;
-                        <Button type='button'>
-                            {t('Next')}&nbsp;
-                            <FaArrowRight/>
-                        </Button>
+                        {
+                            nextPage &&
+                            <Button
+                                type='button'
+                                handleOnClick={() => console.log(nextPage)}
+                            >
+                                {t('Next')}&nbsp;
+                                <FaArrowRight/>
+                            </Button>
+                        }
                     </div>
                 </div>
             </div>
