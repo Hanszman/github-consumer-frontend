@@ -5,9 +5,6 @@ import Navbar from './components/layout/navbar/Navbar';
 import Home from './components/pages/home/Home';
 import User from './components/pages/user/User';
 
-// TODO: User details page
-// TODO: Repositories table
-
 // Component
 function App() {
   return (
