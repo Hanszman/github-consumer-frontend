@@ -27,7 +27,6 @@ function Home() {
         try {
             Api.get(initialUrl).then(
                 res => {
-                    console.log(res);
                     if (res?.data?.response?.data) {
                         setUsers(res.data.response.data);
                         setUsersFilter(res.data.response.data);
@@ -57,7 +56,6 @@ function Home() {
             try {
                 Api.get(filterUrl).then(
                     res => {
-                        console.log(res);
                         if (res?.data?.response?.data) {
                             const user = [];
                             user.push(res.data.response.data);
@@ -90,7 +88,6 @@ function Home() {
         try {
             Api.get(url).then(
                 res => {
-                    console.log(res);
                     if (res?.data?.response?.data) {
                         setUsersFilter(res.data.response.data);
                         setCurrentPageHistory(oldArray => oldArray.filter((_, index) => index !== currentPageHistory.length-1));
@@ -116,7 +113,6 @@ function Home() {
         try {
             Api.get(url).then(
                 res => {
-                    console.log(res);
                     if (res?.data?.response?.data) {
                         setUsersFilter(res.data.response.data);
                         setPreviousPage(currentPageHistory[currentPageHistory.length-1]);

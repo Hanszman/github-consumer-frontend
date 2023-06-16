@@ -7,7 +7,6 @@ import User from './components/pages/user/User';
 
 // TODO: User details page
 // TODO: Repositories table
-// TODO: Refactor the code
 
 // Component
 function App() {
